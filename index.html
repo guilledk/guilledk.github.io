@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>classic-wgl</title>
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+                background: #000;
+            }
+            #glCanvas {
+                display: block;
+                width: 100vw;
+                height: 100vh;
+            }
+        </style>
+    <link rel="modulepreload" href="/classic-web-5fd4cb582a179862.js" crossorigin="anonymous" integrity="sha384-EwJAAVfTjFx6UCenO7Lh6KFFlDUO1Q0vB3HZ/7XuFVQCo0CxF3aUjXJZ8voVz0Qy"><link rel="preload" href="/classic-web-5fd4cb582a179862_bg.wasm" crossorigin="anonymous" integrity="sha384-oluuZFyK3PvwAU8NY7jr1QVAZG7thruOGZcdtctowx362AcqOkUBIkPaRy/M1DQz" as="fetch" type="application/wasm"></head>
+    <body>
+        <canvas id="glCanvas"></canvas>
+    
+<script type="module">
+import init, * as bindings from '/classic-web-5fd4cb582a179862.js';
+const wasm = await init({ module_or_path: '/classic-web-5fd4cb582a179862_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>
